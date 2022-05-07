@@ -1,56 +1,31 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import { FlatList, Image, StyleSheet, View } from 'react-native';
-import { images } from './constants';
+import React from 'react';
+import { SafeAreaView, StatusBar, StyleSheet, ScrollView } from 'react-native';
+import TopBar from './assets/components/topbar';
 
-import mockData from './mockData/data';
+import Category from './components/category';
 
-const ShowScroller = ({ dataset }) => {
-  const dataArray = Object.values(mockData[dataset]);
-
+const ShowScroller = () => {
   return (
-    <FlatList
-      contentContainerStyle={ {paddingHorizontal: Math.ceil(8 / 2)}}
-      data={dataArray}
-      horizontal
-      keyExtractor={({ id }) => id.toString()}
-      renderItem={({ item }) => {
-        let renderItem = <View style={styles['rectangle']} />;
-
-        if (item.image) {
-          renderItem = (
-            <Image source={images[item.image]} style={styles[`rectangleImage`]} />
-          );
-        }
-
-        return renderItem;
-      }}
-      showsHorizontalScrollIndicator={false}
-    />
+    <SafeAreaView style={styles.container}>
+      <StatusBar hidden />
+      <TopBar></TopBar>
+      <ScrollView>
+        <Category genre='Drame'></Category>
+        <Category genre='Aventure'></Category>
+        <Category genre='Action'></Category>
+        <Category genre='Comédie'></Category>
+        <Category></Category>
+        <Category></Category>
+        <Category></Category>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
-ShowScroller.defaultProps = {
-  dataset: 'myList'
-};
-
-ShowScroller.propTypes = {
-  // optional
-  dataset: PropTypes.string
-};
-
 const styles = StyleSheet.create({
-  rectangle: {
-    backgroundColor: '#a4a4a4',
-    height: 131,
-    marginRight: 8,
-    width: 91
-  },
-  rectangleImage: {
-    height: 131,
-    marginRight: 8,
-    resizeMode: 'contain',
-    width: 91
+  container: {
+    flex: 1,
+    backgroundColor: '#212121'
   },
 });
 

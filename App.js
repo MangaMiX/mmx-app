@@ -1,6 +1,6 @@
 import React from 'react';
 import { SafeAreaView, StatusBar, StyleSheet, ScrollView } from 'react-native';
-import TopBar from './assets/components/topbar';
+import TopBar from './components/topbar';
 
 import Category from './components/category';
 

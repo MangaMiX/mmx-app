@@ -1,21 +1,33 @@
 import React from 'react';
 import { View, StyleSheet, Text, TextInput } from 'react-native';
+import { SearchBar } from 'react-native-elements';
 
 const TopBar = () => {
     return (
-      <View style={styles.topbarview}>
-          <Text style={styles.title}>MangaMiX</Text>
+      <View>
+        <SearchBar
+          round
+          searchIcon={{ size: 24 }}
+          onChangeText={(text) => searchFilterFunction(text)}
+          onClear={(text) => searchFilterFunction('')}
+          placeholder="Type Here..."
+          value={""}
+          lightTheme={true}
+          containerStyle={styles.topbarview}
+        />
       </View>
     );
   }
 
+  const searchFilterFunction = (text) => {
+    alert(text)
+  };
+
   const styles = StyleSheet.create({
     topbarview: {
-      backgroundColor: '#000',
-      height: 90,
-      paddingBottom: 4,
-      justifyContent: 'center',
-    //   flexDirection: 'row',
+      backgroundColor: '#212121',
+      borderTopWidth: 0,
+      borderBottomWidth: 0,
     },
     title: {
         color: '#fff',

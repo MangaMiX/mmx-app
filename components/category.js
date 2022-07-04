@@ -8,7 +8,7 @@ const Category = ({ dataset, genre }) => {
   const dataArray = Object.values(mockData[dataset]);
 
   return (
-    <View>
+    <View style={{paddingBottom: 15}}>
       <Text style={styles.genre}>{genre}</Text>
       <FlatList
         contentContainerStyle={ {paddingHorizontal: 10}}
